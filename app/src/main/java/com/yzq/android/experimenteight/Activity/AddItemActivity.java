@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
+import com.yzq.android.experimenteight.Listener.EditTextFocusListener;
 import com.yzq.android.experimenteight.R;
 import com.yzq.android.experimenteight.Util.BirthDBHelper;
 
@@ -19,6 +21,8 @@ public class AddItemActivity extends AppCompatActivity {
 
     private EditText name, gift;
     private DatePicker datePicker;
+    private LinearLayout linearLayout;
+    private static final View.OnFocusChangeListener of = new EditTextFocusListener();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +33,10 @@ public class AddItemActivity extends AppCompatActivity {
         datePicker = (DatePicker) findViewById(R.id.item_add_date_picker);
         gift = (EditText)findViewById(R.id.edit_gift);
         Button add = (Button)findViewById(R.id.add_item);
+        linearLayout = (LinearLayout)findViewById(R.id.activity_add_item);
 
+        name.setOnFocusChangeListener(of);
+        gift.setOnFocusChangeListener(of);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override

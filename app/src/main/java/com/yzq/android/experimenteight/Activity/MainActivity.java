@@ -12,7 +12,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -23,6 +22,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.yzq.android.experimenteight.Adapter.BirthAdapter;
+import com.yzq.android.experimenteight.Listener.EditTextFocusListener;
 import com.yzq.android.experimenteight.R;
 import com.yzq.android.experimenteight.Util.BirthDBHelper;
 import com.yzq.android.experimenteight.Util.BirthItem;
@@ -31,9 +31,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    private static final View.OnFocusChangeListener of = new EditTextFocusListener();
 
     private FloatingActionButton fab;
     private ListView birthListView;
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
         Button quit_change = (Button)dialogView.findViewById(R.id.quit_change);
         Button confirm_change = (Button)dialogView.findViewById(R.id.confirm_change);
 
-        name.setText(birthItem.getName());
+        gift.setOnFocusChangeListener(of);
 
         Calendar calendar = Calendar.getInstance();
         try {
@@ -144,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
         }
         datePicker.updateDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
 
+        name.setText(birthItem.getName());
         gift.setText(birthItem.getGift());
         phone.setText(getPhoneNumber(birthItem.getName()));
 
