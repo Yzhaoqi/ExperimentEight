@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:clickable="true"
     android:focusable="true"
-    android:focusableInTouchMode="true">
+    android:focusableInTouchMode="true"
+    android:background="#FAFAFA">
 
     <TextView
         android:layout_margin="16dp"
@@ -93,7 +94,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="@string/birth_message_dialog_deny"
-            android:background="@android:color/transparent"/>
+            android:background="@drawable/ripple"/>
 
         <View
             android:layout_width="1dp"
@@ -106,7 +107,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="@string/birth_message_dialog_accept"
-            android:background="@android:color/transparent"/>
+            android:background="@drawable/ripple"/>
 
     </LinearLayout>
 
