@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -24,7 +25,7 @@ import android.widget.TextView;
 import com.yzq.android.experimenteight.Adapter.BirthAdapter;
 import com.yzq.android.experimenteight.Listener.EditTextFocusListener;
 import com.yzq.android.experimenteight.R;
-import com.yzq.android.experimenteight.Util.BirthDBHelper;
+import com.yzq.android.experimenteight.Database.BirthDBHelper;
 import com.yzq.android.experimenteight.Util.BirthItem;
 
 import java.text.ParseException;
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView name, phone;
     private EditText gift;
     private DatePicker datePicker;
-    private SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+    private SimpleDateFormat format = new SimpleDateFormat("MM/dd");
 
     private BirthDBHelper birthDatabase;
 
@@ -134,9 +135,12 @@ public class MainActivity extends AppCompatActivity {
         Button quit_change = (Button)dialogView.findViewById(R.id.quit_change);
         Button confirm_change = (Button)dialogView.findViewById(R.id.confirm_change);
 
+        ((ViewGroup) ((ViewGroup) datePicker.getChildAt(0)).getChildAt(0)).getChildAt(0).setVisibility(View.GONE);
+
         gift.setOnFocusChangeListener(of);
 
         Calendar calendar = Calendar.getInstance();
+
         try {
             calendar.setTime(format.parse(birthItem.getBirth()));
         } catch (ParseException e) {
@@ -209,7 +213,6 @@ public class MainActivity extends AppCompatActivity {
         Cursor cursor = getContentResolver().query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
         String phoneNumber = "";
         while (cursor.moveToNext()) {
-
             String contactId = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID));
             String contactName = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
             String hasPhone = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER));

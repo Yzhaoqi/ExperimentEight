@@ -5,14 +5,14 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 
 import com.yzq.android.experimenteight.Listener.EditTextFocusListener;
 import com.yzq.android.experimenteight.R;
-import com.yzq.android.experimenteight.Util.BirthDBHelper;
+import com.yzq.android.experimenteight.Database.BirthDBHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -21,7 +21,6 @@ public class AddItemActivity extends AppCompatActivity {
 
     private EditText name, gift;
     private DatePicker datePicker;
-    private LinearLayout linearLayout;
     private static final View.OnFocusChangeListener of = new EditTextFocusListener();
 
     @Override
@@ -33,8 +32,8 @@ public class AddItemActivity extends AppCompatActivity {
         datePicker = (DatePicker) findViewById(R.id.item_add_date_picker);
         gift = (EditText)findViewById(R.id.edit_gift);
         Button add = (Button)findViewById(R.id.add_item);
-        linearLayout = (LinearLayout)findViewById(R.id.activity_add_item);
 
+        ((ViewGroup) ((ViewGroup) datePicker.getChildAt(0)).getChildAt(0)).getChildAt(0).setVisibility(View.GONE);
         name.setOnFocusChangeListener(of);
         gift.setOnFocusChangeListener(of);
 
@@ -50,7 +49,7 @@ public class AddItemActivity extends AppCompatActivity {
                     int year = datePicker.getYear();
                     Calendar calendar = Calendar.getInstance();
                     calendar.set(year, month, day);
-                    SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+                    SimpleDateFormat format = new SimpleDateFormat("MM/dd");
 
                     intent.putExtra("birth", format.format(calendar.getTime()));
                     intent.putExtra("gift", gift.getText().toString());

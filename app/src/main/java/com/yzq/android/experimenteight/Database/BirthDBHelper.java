@@ -1,10 +1,12 @@
-package com.yzq.android.experimenteight.Util;
+package com.yzq.android.experimenteight.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.yzq.android.experimenteight.Util.BirthItem;
 
 import java.util.ArrayList;
 
