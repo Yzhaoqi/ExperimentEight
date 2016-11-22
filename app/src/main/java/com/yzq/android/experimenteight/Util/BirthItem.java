@@ -15,6 +15,11 @@ public class BirthItem {
         this.gift = gift;
     }
 
+    public void setAll(String birth, String gift) {
+        this.birth = birth;
+        this.gift = gift;
+    }
+
     public String getName() {
         return name;
     }

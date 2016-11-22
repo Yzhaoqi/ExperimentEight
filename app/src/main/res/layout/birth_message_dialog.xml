@@ -4,46 +4,80 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:layout_margin="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/birth_message_dialog_title"
+        android:textSize="20sp"
+        android:textColor="#51BEE7"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#51BEE7" />
+
     <TableLayout
+        android:layout_margin="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TableRow>
+        <TableRow
+            android:layout_marginBottom="16dp">
             <TextView
+                android:textSize="18sp"
                 android:layout_width="wrap_content"
-                android:text="姓名："/>
+                android:text="@string/birth_message_dialog_name"/>
             <TextView
+                android:textSize="18sp"
                 android:id="@+id/msg_name"
                 android:layout_weight="1"/>
         </TableRow>
 
         <TableRow>
             <TextView
+                android:textSize="18sp"
                 android:layout_width="wrap_content"
-                android:text="生日："/>
-            <TextView
-                android:id="@+id/msg_birth"
-                android:layout_weight="1"/>
+                android:text="@string/birth_message_dialog_birth"/>
+            <DatePicker
+                android:layout_gravity="center"
+                android:id="@+id/message_dialog_picker"
+                android:layout_width="wrap_content"
+                android:layout_height="144dp"
+                android:datePickerMode="spinner"
+                android:calendarViewShown="false" />
         </TableRow>
 
         <TableRow>
             <TextView
+                android:textSize="18sp"
                 android:layout_width="wrap_content"
-                android:text="礼物："/>
-            <TextView
+                android:text="@string/birth_message_dialog_gift"/>
+            <EditText
+                android:textSize="18sp"
                 android:id="@+id/msg_gift"
                 android:layout_weight="1"/>
         </TableRow>
 
-        <TableRow>
+        <TableRow
+            android:layout_marginTop="16dp">
             <TextView
+                android:textSize="18sp"
                 android:layout_width="wrap_content"
-                android:text="电话："/>
+                android:textColor="#22AC59"
+                android:text="@string/birth_message_dialog_phone"/>
             <TextView
+                android:textSize="18sp"
                 android:id="@+id/msg_phone"
+                android:textColor="#22AC59"
                 android:layout_weight="1"/>
         </TableRow>
     </TableLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorEdge" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,18 +85,25 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/quit_change"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="放弃修改"
-            android:background="#FFFF00"/>
+            android:text="@string/birth_message_dialog_deny"
+            android:background="@android:color/transparent"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorEdge" />
 
         <Button
+            android:id="@+id/confirm_change"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="保存修改"
-            android:background="#FF00FF"/>
+            android:text="@string/birth_message_dialog_accept"
+            android:background="@android:color/transparent"/>
 
     </LinearLayout>
 

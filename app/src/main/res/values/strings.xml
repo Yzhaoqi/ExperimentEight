@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">ExperimentEight</string>
+
+    <string name="delete_confirm_dialog_title">是否删除?</string>
+    <string name="dialog_deny">否</string>
+    <string name="dialog_accept">是</string>
+
+    <string name="birth_message_dialog_title">(╯‵□′)╯︵┻━┻</string>
+    <string name="birth_message_dialog_name">姓名：</string>
+    <string name="birth_message_dialog_birth">生日：</string>
+    <string name="birth_message_dialog_gift">礼物：</string>
+    <string name="birth_message_dialog_phone">电话：</string>
+    <string name="birth_message_dialog_deny">放弃修改</string>
+    <string name="birth_message_dialog_accept">保存修改</string>
+
+    <string name="first_line_name">姓名</string>
+    <string name="first_line_birth">生日</string>
+    <string name="first_line_gift">礼物</string>
+
+    <string name="set_time">选取时间</string>
+    <string name="increase">增加</string>
 </resources>
